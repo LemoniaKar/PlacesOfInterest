@@ -22,8 +22,8 @@
         
         
         <!-- Φόρτωση link αρχείων CSS -->
-        <link rel="stylesheet" href="https://github.com/naomap/leaflet-fusesearch/blob/master/src/leaflet.fusesearch.css"/>
-        <link rel="stylesheet" href="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/> 
+        
 
             
     </head>
@@ -33,7 +33,7 @@
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Προσθήκη leaflet -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script> <!--leaflet Plugin: Ενσωμάτωση Javascript για το draw toolbar -->
-        <script src="https://github.com/naomap/leaflet-fusesearch/edit/master/src/leaflet.fusesearch.js"></script> <!-- search API leaflet -->
+        <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script> <!-- search API leaflet -->
 
 
         <script> // Javascript
@@ -62,11 +62,6 @@
             //Τέλος
 
 
-            var markersLayer = new L.LayerGroup();	//layer contain searched elements
-
-            map.addLayer(markersLayer);
-
-
 
              //Εισαγωγή πινέζας σε τοποθεσία
             //και εισαγωγή info τοποθεσίας σε popup window
@@ -81,27 +76,7 @@
             });
 
 
-//Εισαγωγή search bar πάνω δεξιά
-            var controlSearch = new L.Control.Search({
-                position: 'topright',
-                layer: markersLayer,
-                initial: false,
-                zoom: 12,
-                marker: false
-            });
 
-            map.addControl(controlSearch);
-
-/*
-            ////////////populate map with markers from sample data
-            for (i in data) {
-                var title = data[i].title, //value searched
-                        loc = data[i].loc, //position found
-                        marker = new L.Marker(new L.latLng(loc), {title: title});//se property searched
-                marker.bindPopup('title: ' + title);
-                markersLayer.addLayer(marker);
-            }
-*/
 
 
             // Επιλογή περιοχής με το άνοιγμα του browser
@@ -110,20 +85,7 @@
             var geojson = {"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"type": "Point", "coordinates": [23.705749511718746, 38.014017213643996]}}, {"type": "Feature", "properties": {}, "geometry": {"type": "Polygon", "coordinates": [[[23.67176055908203, 38.039438891821746], [23.659400939941406, 38.004008389202696], [23.690471649169922, 37.98303953134849], [23.733386993408203, 37.958681077955525], [23.763427734375, 37.97776255232763], [23.766174316406246, 38.03294908916503], [23.733558654785156, 38.06228382832852], [23.67176055908203, 38.039438891821746]]]}}]};
 
 
-            /*
-             
-             //https://github.com/naomap/leaflet-fusesearch
-             var searchCtrl = L.control.fuseSearch();
-             searchCtrl.addTo(map);
-             
-             searchCtrl.indexFeatures(e.latlng.toString());
-             
-             L.geoJson(data, {
-             onEachFeature: function(feature, layer){
-             feature.layer = layer;
-             }
-             });
-             */
+
 
 
 
