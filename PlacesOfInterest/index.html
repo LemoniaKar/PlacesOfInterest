@@ -16,16 +16,16 @@
         <meta charset="utf-8" /> 
         <meta name="generator" content="Google Web Designer 9.0.2.0915">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!--leaflet-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>  <!--leaflet.draw-->
-        
-        
+
+
         <!-- Φόρτωση link αρχείων CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"/> 
-        
 
-            
+
+
     </head>
 
     <body>
@@ -48,7 +48,7 @@
                         maxZoom: 25
                     }).addTo(map);
 
-             // Αυτόματη Ανεύρεση Τοποθεσίας από τον browser
+            // Αυτόματη Ανεύρεση Τοποθεσίας από τον browser
             //και προσθήκη πινέζας
             map.locate({setView: true, maxZoom: 8});
             function onLocationFound(e) {
@@ -63,7 +63,7 @@
 
 
 
-             //Εισαγωγή πινέζας σε τοποθεσία
+            //Εισαγωγή πινέζας σε τοποθεσία
             //και εισαγωγή info τοποθεσίας σε popup window
             map.on('click', function (e) {
                 var popLocation = e.latlng;
@@ -90,16 +90,22 @@
                 keepResult: true,
                 provider: new GeoSearch.OpenStreetMapProvider()
             });
-            
+
             map.addControl(search);
-            
-            
-
-
 
         </script> 
         <!--telos javascript-->
 
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/8.0.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="/__/firebase/8.0.1/firebase-analytics.js"></script>
+
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
 
     </body>
 </html>
